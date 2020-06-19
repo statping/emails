@@ -3,6 +3,10 @@
 This repo contains [mjml.io](https://mjml.io) templates for Statping emails.
 
 
+# Templates
+- [Verify](https://mjml.io/try-it-live/S1m-bX5pI)
+- Service Notification
+
 # Headers
 <img width="650" src="https://assets.statping.com/greenbackground.png">
 
