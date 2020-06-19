@@ -3,7 +3,7 @@
 This repo contains [mjml.io](https://mjml.io) templates for Statping emails.
 
 
-## Headers
+# Headers
 <img width="650" src="https://assets.statping.com/greenbackground.png">
 
 ###### `https://assets.statping.com/greenbackground.png`
@@ -12,7 +12,7 @@ This repo contains [mjml.io](https://mjml.io) templates for Statping emails.
 
 ###### `https://assets.statping.com/offlinebanner.png`
 
-## Overlay Headers
+# Overlay Headers
 
 <img width="100" src="https://assets.statping.com/iconlight.png">
 
