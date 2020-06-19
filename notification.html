@@ -15,15 +15,15 @@
     <mj-section background-color="#ffffff">
       <mj-column width="100%">
         <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" font-size="22px" padding="10px" line-height="30px">
-         {{.Name}} is currently offline, you might want to check it {{.Domain}}.
+         {{.Service.Name}} is currently offline, you might want to check it.
         </mj-text>
         
         
             <mj-section padding-left="0px" padding-right="0px" padding-top="10px" padding-bottom="10px">
         <mj-column>
-          <mj-text font-color="#d50d0d" align="center" font-size="20px" color="#626262">Offline for 25 minutes and 35 seconds</mj-text>
+          <mj-text font-color="#d50d0d" align="center" font-size="20px" color="#626262">Offline for {{.Service.OfflineDuration}}</mj-text>
           
-          <mj-button border-radius="4px" background-color="#4caf50" href="#">View Dashboard</mj-button>
+          <mj-button border-radius="4px" background-color="#4caf50" href="{{.Core.Domain}}/service/{{.Service.Id}}">View Dashboard</mj-button>
           
     </mj-column>
   </mj-section>
@@ -39,14 +39,14 @@
   <mj-section padding="0px" background-color="#fafafa">
         <mj-column>
           <mj-text font-size="20px" color="#626262">Service Domain</mj-text>
-          <mj-text padding-top="0px" font-size="14px" color="#626262">http://google.com</mj-text>
+          <mj-text padding-top="0px" font-size="14px" color="#626262">{{.Service.Domain}}</mj-text>
     </mj-column>
   </mj-section>
     
     <mj-section padding="0px"  background-color="#ffffff">
         <mj-column>
           <mj-text font-size="20px" color="#626262">Current Issue</mj-text>
-          <mj-text padding-top="0px" font-size="14px" color="#626262">Service returned a status code of 404 but expected 200</mj-text>
+          <mj-text padding-top="0px" font-size="14px" color="#626262">{{.Failure.Issue}}</mj-text>
     </mj-column>
   </mj-section>
     
@@ -75,6 +75,8 @@
         <mj-group>
           <mj-column width="100%" padding-right="0">
             <mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold">
+              <a class="footer-link" href="https://statping.com">Statping.com</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; 
+              
               <a class="footer-link" href="https://github.com/statping/statping">Github</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
               
               <a class="footer-link" href="https://www.google.com">Privacy</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
