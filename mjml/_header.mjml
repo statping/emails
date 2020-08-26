@@ -1,0 +1,5 @@
+<mj-section background-color="#15ae08" background-url="https://assets.statping.com/greenbackground.png" padding="0px">
+    <mj-column>
+        <mj-image width="45px" href="https://statping.com" src="https://assets.statping.com/iconlight.png" align="center" alt="Statping"></mj-image>
+    </mj-column>
+</mj-section>
