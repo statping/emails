@@ -50,10 +50,10 @@
 
                 <mj-spacer height="30px" />
 
-                <mj-include path="./_footer.mjml" />
-
             </mj-column>
         </mj-section>
+
+        <mj-include path="./_footer.mjml" />
 
     </mj-body>
 </mjml>

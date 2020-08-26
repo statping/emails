@@ -25,14 +25,6 @@
                     </mj-column>
                 </mj-section>
 
-
-                <mj-raw>
-                    <!-- Bottom Graphic -->
-                </mj-raw>
-
-
-
-
                 <mj-section padding="0px" background-color="#fafafa">
                     <mj-column>
                         <mj-text font-size="20px" color="#626262">Service Domain</mj-text>
@@ -50,10 +42,10 @@
 
                 <mj-spacer height="30px" />
 
-                <mj-include path="./_footer.mjml" />
-
             </mj-column>
         </mj-section>
+
+        <mj-include path="./_footer.mjml" />
 
     </mj-body>
 </mjml>

@@ -1,6 +1,6 @@
-package main
+// +build ignore
 
-//go:generate go run generate.go
+package main
 
 import (
 	"bytes"
@@ -24,17 +24,39 @@ func main() {
 
 package emails
 
+//go:generate go run generate.go
+
+import (
+	"bytes"
+	"html/template"
+)
+
 const (
 	` + constVar("Success", success) + `
 	` + constVar("Failure", failure) + `
 	` + constVar("Verify", verify) + `
 )
+
+// Parse accepts a HTML template and data to render into the template
+func Parse(temp string, data interface{}) (string, error) {
+	var err error
+	tmpl := template.New("email")
+	tmpl, err = tmpl.Parse(temp)
+	if err != nil {
+		return "", err
+	}
+	w := bytes.NewBufferString("")
+	if err := tmpl.Execute(w, data); err != nil {
+		return "", err
+	}
+	return w.String(), nil
+}
 `
 
-	utils.SaveFile("emails/rendered.go", []byte(codeOut))
+	utils.SaveFile("compiled.go", []byte(codeOut))
 	createIndex()
 
-	fmt.Println("Email MJML to HTML const saved: emails/rendered.go")
+	fmt.Println("Email MJML to HTML const saved: compiled.go")
 }
 
 func createIndex() {
