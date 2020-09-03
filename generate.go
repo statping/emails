@@ -46,7 +46,7 @@ const (
 // Parse accepts a HTML template and data to render into the template
 func Parse(temp string, data interface{}) (string, error) {
 	var err error
-	tmpl := template.New("email")
+	tmpl := template.New("email").Option("missingkey=error")
 	tmpl, err = tmpl.Parse(temp)
 	if err != nil {
 		return "", err

@@ -26,7 +26,7 @@
 
                 <a class="footer-link" href="https://statping.com/privacy">Privacy</a>&#xA0;&#xA0;&#xA0;&#xA0;
 
-                <a class="footer-link" href="https://news.statping.com/delete?email={{.Email}}">Unsubscribe</a>
+                {{if .Email}}<a class="footer-link" href="https://news.statping.com/delete?email={{.Email}}">Unsubscribe</a>{{end}}
             </mj-text>
         </mj-column>
     </mj-group>

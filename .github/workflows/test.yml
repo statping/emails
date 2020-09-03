@@ -1,0 +1,24 @@
+name: Compile and Test
+on: [push]
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: 1.15.x
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.18.2
+
+      - name: Install MJML
+        run: npm install mjml -g
+
+      - name: Generate MJML to HTML
+        run: go generate
+
+      - name: Test Templates
+        run: go test

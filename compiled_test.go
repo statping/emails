@@ -1,0 +1,49 @@
+package emails
+
+import (
+	"github.com/statping/statping/types/core"
+	"github.com/statping/statping/types/failures"
+	"github.com/statping/statping/types/services"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+)
+
+type replacer struct {
+	Core    core.Core
+	Service services.Service
+	Failure failures.Failure
+	Custom  map[string]string
+	Email   string
+}
+
+func TestServiceOnline(t *testing.T) {
+	example := services.Example(true)
+
+	replaced := replacer{
+		Core:    *core.Example(),
+		Service: example,
+		Failure: failures.Example(),
+		Email: "info@statping.com",
+	}
+	tmpl, err := Parse(Success, replaced)
+	require.Nil(t, err)
+	assert.Contains(t, tmpl, example.Name)
+	assert.Contains(t, tmpl, example.Downtime().Human())
+}
+
+func TestServiceOffline(t *testing.T) {
+	example := services.Example(false)
+	failure := failures.Example()
+
+	replaced := &replacer{
+		Core:    *core.Example(),
+		Service: example,
+		Failure: failure,
+		Email: "info@statping.com",
+	}
+	tmpl, err := Parse(Failure, replaced)
+	require.Nil(t, err)
+	assert.Contains(t, tmpl, example.Name)
+	assert.Contains(t, tmpl, example.Downtime().Human())
+}
