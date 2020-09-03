@@ -1,6 +1,7 @@
 package emails
 
 import (
+	"fmt"
 	"github.com/statping/statping/types/core"
 	"github.com/statping/statping/types/failures"
 	"github.com/statping/statping/types/services"
@@ -24,12 +25,12 @@ func TestServiceOnline(t *testing.T) {
 		Core:    *core.Example(),
 		Service: example,
 		Failure: failures.Example(),
-		Email: "info@statping.com",
+		Email:   "info@statping.com",
 	}
 	tmpl, err := Parse(Success, replaced)
 	require.Nil(t, err)
 	assert.Contains(t, tmpl, example.Name)
-	assert.Contains(t, tmpl, example.Downtime().Human())
+	assert.Contains(t, tmpl, fmt.Sprintf("%0.0f seconds", example.Downtime().Seconds()))
 }
 
 func TestServiceOffline(t *testing.T) {
@@ -40,10 +41,10 @@ func TestServiceOffline(t *testing.T) {
 		Core:    *core.Example(),
 		Service: example,
 		Failure: failure,
-		Email: "info@statping.com",
+		Email:   "info@statping.com",
 	}
 	tmpl, err := Parse(Failure, replaced)
 	require.Nil(t, err)
 	assert.Contains(t, tmpl, example.Name)
-	assert.Contains(t, tmpl, example.Downtime().Human())
+	assert.Contains(t, tmpl, fmt.Sprintf("%0.0f seconds", example.Downtime().Seconds()))
 }
