@@ -8,7 +8,7 @@
 <mj-section padding-bottom="0" padding-top="5px">
     <mj-column>
         <mj-text color="#445566" font-size="11px" align="center" line-height="13px">
-            You are receiving this email because one of your services has changed on your Statping instance. You can modify this email on the Email Notifier page in Settings or by clicking the Unscribe link below
+            You are receiving this email because one of your services has changed on your Statping instance. You can modify this email on the Email Notifier page in Settings or by clicking the Unsubscribe link below
         </mj-text>
         <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
             &copy; Statping
